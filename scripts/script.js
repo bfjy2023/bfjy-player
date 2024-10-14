@@ -211,22 +211,7 @@ if (localTracks) {
     ];
 }
 
-// 使用 fetch 获取 API 数据
-fetch('https://dg.slwu19.workers.dev/?song=' + songName)
-.then(response => response.json())
-.then(data => {
-    
-    // 将 API 返回的数据添加到 tracks 列表中
-    this.tracks.push({
-        name: data.song_name,
-        artist: data.song_singer,
-        cover: data.cover,
-        source: data.link,
-        url: data.music_url,
-        favored: false,
-    });
-})
-.catch(error => console.error('Error:', error));
+
 
 // 将更新后的 tracks 存储到本地存储中
 localStorage.setItem("tracks", JSON.stringify(this.tracks));
