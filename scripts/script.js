@@ -197,17 +197,35 @@ new Vue({
     if (localTracks) {
       this.tracks = JSON.parse(localTracks);
     } else {
-      // 默认播放列表
+      fetch('https://dg.slwu19.workers.dev/?song=${songName}')
+      .then(response => {
+      // 检查响应状态是否成功
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json(); // 解析响应体为 JSON
+    })
+    .then(data => {
+      // 成功获取数据后，将其赋值给 this.tracks
       this.tracks = [
         {
-          name: "自在的少年",
-          artist: "也不用买菜",
-          cover: "https://y.qq.com/music/photo_new/T062R800x800M000000g0vZX2zsQfU.jpg?max_age=2963246343",
-          source: "https://sjy6.stream.qqmusic.qq.com/M5000021K9jl1QJA9C.mp3?guid=www.hhlqilongzhu.cn&vkey=F34179CF8FF703F457900C3D1EF55D6BBC413FA9C147219B62A5BB3622E8DB50D05925C814DABB2E4A9C3D80441950C8BD700D72BDC124F6&uin=2205693398&fromtag=5201314&info=cache&from=longzhu_api",
-          url: "https://i.y.qq.com/v8/playsong.html?songmid=003Kwlu20jioV9&type=0",
+          name: data.song_name,
+          artist: data.song_singer,
+          cover: data.cover,
+          source: data.music_url,
+          url: data.link,
           favorited: false,
         },
       ];
+      // 可选：在这里添加代码来处理数据更新后的逻辑，例如刷新 UI
+    })
+    .catch(error => {
+      // 处理请求错误
+      console.error('Fetch error: ', error);
+    });
+}
+      // 默认播放列表
+      
     }
     if (songName && artist && cover && source) {
       this.tracks = this.tracks.filter((track) => track.source !== source);
