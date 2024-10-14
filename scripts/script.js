@@ -186,60 +186,50 @@ new Vue({
   },
   created() {
     // 进入项目首先检测地址栏的参数，是否包含歌曲信息，如果存在，则插入到当前播放列表中，并播放
-    // 检测 URL 参数
-    const params = new URLSearchParams(window.location.hash.substring(1));
-    const songName = params.get("name");
-    const artist = params.get("artist");
-    const cover = params.get("cover");
-    const source = params.get("source");
-    // 取出本地缓存中的数据，赋值给播放列表
-    const localTracks = localStorage.getItem("tracks");
-    if (localTracks) {
-      this.tracks = JSON.parse(localTracks);
-    } else {
-      fetch('https://dg.slwu19.workers.dev/?song=${songName}')
-      .then(response => {
-      // 检查响应状态是否成功
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json(); // 解析响应体为 JSON
-    })
-    .then(data => {
-      // 成功获取数据后，将其赋值给 this.tracks
-      this.tracks = [
+// 检测 URL 参数
+const params = new URLSearchParams(window.location.hash.substring(1));
+const songName = params.get("name");
+const artist = params.get("artist");
+const cover = params.get("cover");
+const source = params.get("source");
+
+// 取出本地缓存中的数据，赋值给播放列表
+const localTracks = localStorage.getItem("tracks");
+if (localTracks) {
+    this.tracks = JSON.parse(localTracks);
+} else {
+    // 默认播放列表
+    this.tracks = [
         {
-          name: data.song_name,
-          artist: data.song_singer,
-          cover: data.cover,
-          source: data.music_url,
-          url: data.link,
-          favorited: false,
+            name: "自在的少年",
+            artist: "也不要用菜",
+            cover: "https://y.qq.com/music/photo_new/T062R800x800M000000g0vZXZ2zQfU.jpg?max_age=2963246343",
+            source: "https://sjy6.stream.qqmusic.com/M5000021K9j1lQJ9C.mp3?guid=www.hhlqlongzhu.cn&key=F34179CF8FF703F457900C3D1EFE5BDBBC413FA9C14T719B6A5BB622EBD50D05925C814DAABE4A9C3D0441950C8BDY72DC124F6&uin=2205693398&fromtag=5201314&info_cache&from=longzhu_api",
+            url: "https://i.y.qq.com/v8/playsong.html?songmid=003Kwluo2joV9&type=0",
+            favored: false,
         },
-      ];
-      // 可选：在这里添加代码来处理数据更新后的逻辑，例如刷新 UI
-    })
-    .catch(error => {
-      // 处理请求错误
-      console.error('Fetch error: ', error);
-    });
+    ];
 }
-      // 默认播放列表
-      
-    }
-    if (songName && artist && cover && source) {
-      this.tracks = this.tracks.filter((track) => track.source !== source);
-      // 放第一个
-      this.tracks.unshift({
-        name: songName,
-        artist: artist,
-        cover: cover,
-        source: source,
-        favorited: false,
-      });
-      // 过滤重复的歌曲 根据资源路径判别
-      // 将播放列表数据存储到本地缓存
-      localStorage.setItem("tracks", JSON.stringify(this.tracks));
+
+// 使用 fetch 获取 API 数据
+fetch('https://dg.slwu19.workers.dev/?song=' + songName)
+.then(response => response.json())
+.then(data => {
+    const apiData = data.data;
+    // 将 API 返回的数据添加到 tracks 列表中
+    this.tracks.push({
+        name: apiData.song_name,
+        artist: apiData.song_singer,
+        cover: apiData.cover,
+        source: apiData.link,
+        url: apiData.music_url,
+        favored: false,
+    });
+})
+.catch(error => console.error('Error:', error));
+
+// 将更新后的 tracks 存储到本地存储中
+localStorage.setItem("tracks", JSON.stringify(this.tracks));
     }
 
     let vm = this;
