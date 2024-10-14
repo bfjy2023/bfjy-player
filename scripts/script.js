@@ -186,35 +186,42 @@ new Vue({
   },
   created() {
     // 进入项目首先检测地址栏的参数，是否包含歌曲信息，如果存在，则插入到当前播放列表中，并播放
-// 检测 URL 参数
-const params = new URLSearchParams(window.location.hash.substring(1));
-const songName = params.get("name");
-const artist = params.get("artist");
-const cover = params.get("cover");
-const source = params.get("source");
-
-// 取出本地缓存中的数据，赋值给播放列表
-const localTracks = localStorage.getItem("tracks");
-if (localTracks) {
-    this.tracks = JSON.parse(localTracks);
-} else {
-    // 默认播放列表
-    this.tracks = [
+    // 检测 URL 参数
+    const params = new URLSearchParams(window.location.hash.substring(1));
+    const songName = params.get("name");
+    const artist = params.get("artist");
+    const cover = params.get("cover");
+    const source = params.get("source");
+    // 取出本地缓存中的数据，赋值给播放列表
+    const localTracks = localStorage.getItem("tracks");
+    if (localTracks) {
+      this.tracks = JSON.parse(localTracks);
+    } else {
+      // 默认播放列表
+      this.tracks = [
         {
-            name: "自在的少年",
-            artist: "也不要用菜",
-            cover: "https://y.qq.com/music/photo_new/T062R800x800M000000g0vZXZ2zQfU.jpg?max_age=2963246343",
-            source: "https://sjy6.stream.qqmusic.com/M5000021K9j1lQJ9C.mp3?guid=www.hhlqlongzhu.cn&key=F34179CF8FF703F457900C3D1EFE5BDBBC413FA9C14T719B6A5BB622EBD50D05925C814DAABE4A9C3D0441950C8BDY72DC124F6&uin=2205693398&fromtag=5201314&info_cache&from=longzhu_api",
-            url: "https://i.y.qq.com/v8/playsong.html?songmid=003Kwluo2joV9&type=0",
-            favored: false,
+          name: "自在的少年",
+          artist: "也不用买菜",
+          cover: "https://y.qq.com/music/photo_new/T062R800x800M000000g0vZX2zsQfU.jpg?max_age=2963246343",
+          source: "https://sjy6.stream.qqmusic.qq.com/M5000021K9jl1QJA9C.mp3?guid=www.hhlqilongzhu.cn&vkey=F34179CF8FF703F457900C3D1EF55D6BBC413FA9C147219B62A5BB3622E8DB50D05925C814DABB2E4A9C3D80441950C8BD700D72BDC124F6&uin=2205693398&fromtag=5201314&info=cache&from=longzhu_api",
+          url: "https://i.y.qq.com/v8/playsong.html?songmid=003Kwlu20jioV9&type=0",
+          favorited: false,
         },
-    ];
-}
-
-
-
-// 将更新后的 tracks 存储到本地存储中
-localStorage.setItem("tracks", JSON.stringify(this.tracks));
+      ];
+    }
+    if (songName && artist && cover && source) {
+      this.tracks = this.tracks.filter((track) => track.source !== source);
+      // 放第一个
+      this.tracks.unshift({
+        name: songName,
+        artist: artist,
+        cover: cover,
+        source: source,
+        favorited: false,
+      });
+      // 过滤重复的歌曲 根据资源路径判别
+      // 将播放列表数据存储到本地缓存
+      localStorage.setItem("tracks", JSON.stringify(this.tracks));
     }
 
     let vm = this;
