@@ -18,6 +18,13 @@ new Vue({
           favorited: false,
         },
         {
+          name: "年少有为",
+          artist: "李荣浩",
+          cover: "https://y.qq.com/music/photo_new/T002R800x800M000004QnEHc3zjC7J_1.jpg?max_age=2963246343",
+          sourse: "https://sjy6.stream.qqmusic.qq.com/F000000KFNNA0BDekK.flac?guid=www.hhlqilongzhu.cn&vkey=0EB36A8DD5C113C3AD12F71AB75255BCEC9019C7775E589CCEA89D6280D5549A5AC55A1B77D8B4FE39B96C64A68F509803B0AFECCECA6501&uin=2037377155&fromtag=5201314&info=cache&from=longzhu_api",
+          url: "https://i.y.qq.com/v8/playsong.html?songmid=004DXFlC0nsTCZ&type=0",
+        },
+        {
           name: "Everybody Knows",
           artist: "Leonard Cohen",
           cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg",
@@ -203,8 +210,16 @@ new Vue({
           name: "自在的少年",
           artist: "要不要买菜",
           cover: "https://y.qq.com/music/photo_new/T062R800x800M000000g0vZX2zsQfU.jpg?max_age=2963246343",
-          source: "https://github.com/bfjy2023/bfjy-player/blob/master/mp3/zz.mp3",
+          source: "https://sjy6.stream.qqmusic.qq.com/M5000021K9jl1QJA9C.mp3?guid=www.hhlqilongzhu.cn&vkey=33FDD9AC427F9C96FCD2C2E4C0D5DD8F92A92F83E8AABD3C607C7F30934986283F386EA6D1CB450A3FBDEC82F5BC5EF8FC9652E595A05D4A&uin=3480707453&fromtag=5201314&info=cache&from=longzhu_api",
           url: "https://i.y.qq.com/v8/playsong.html?songmid=003Kwlu20jioV9&type=0",
+          favorited: false,
+        },
+        {
+          name: "年少有为",
+          artist: "李荣浩",
+          cover: "https://y.qq.com/music/photo_new/T002R800x800M000004QnEHc3zjC7J_1.jpg?max_age=2963246343",
+          sourse: "https://sjy6.stream.qqmusic.qq.com/F000000KFNNA0BDekK.flac?guid=www.hhlqilongzhu.cn&vkey=0EB36A8DD5C113C3AD12F71AB75255BCEC9019C7775E589CCEA89D6280D5549A5AC55A1B77D8B4FE39B96C64A68F509803B0AFECCECA6501&uin=2037377155&fromtag=5201314&info=cache&from=longzhu_api",
+          url: "https://i.y.qq.com/v8/playsong.html?songmid=004DXFlC0nsTCZ&type=0",
           favorited: false,
         },
       ];
