@@ -13,7 +13,7 @@ new Vue({
           name: "自在的少年",
           artist: "要不要买菜",
           cover: "https://y.qq.com/music/photo_new/T062R800x800M000000g0vZX2zsQfU.jpg?max_age=2963246343",
-          source: "https://github.com/bfjy2023/bfjy-player/blob/master/mp3/zz.mp3",
+          source: "https://sjy6.stream.qqmusic.qq.com/M5000021K9jl1QJA9C.mp3?guid=www.hhlqilongzhu.cn&vkey=33FDD9AC427F9C96FCD2C2E4C0D5DD8F92A92F83E8AABD3C607C7F30934986283F386EA6D1CB450A3FBDEC82F5BC5EF8FC9652E595A05D4A&uin=3480707453&fromtag=5201314&info=cache&from=longzhu_api",
           url: "https://i.y.qq.com/v8/playsong.html?songmid=003Kwlu20jioV9&type=0",
           favorited: false,
         },
@@ -23,6 +23,14 @@ new Vue({
           cover: "https://y.qq.com/music/photo_new/T002R800x800M000004QnEHc3zjC7J_1.jpg?max_age=2963246343",
           sourse: "https://m701.music.126.net/20241015220736/4fd9b3883243cc291714a20869d961e2/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32283600345/f29b/d599/f294/a7361dca69f85d80e3c027f2ec0550cd.mp3?from=longzhu_api",
           url: "https://i.y.qq.com/v8/playsong.html?songmid=004DXFlC0nsTCZ&type=0",
+        },
+        {
+          name: "身骑白马",
+          artist: "黏苞米糊糊DJ",
+          cover: "https://p2.music.126.net/i1k163NFsErhRTC_XsOWoQ==/109951169355203843.jpg",
+          sourse: "https://m701.music.126.net/20241015221722/5eda23e68d2348b21d561d34cf809a1d/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/33829736277/6b1e/f039/b751/0ddf548f00821c697b180816cf4d8e3c.mp3?from=longzhu_api",
+          url: "https://music.163.com/#/song?id=2015499286",
+          favorited: false,
         },
         {
           name: "Everybody Knows",
@@ -220,6 +228,14 @@ new Vue({
           cover: "https://y.qq.com/music/photo_new/T002R800x800M000004QnEHc3zjC7J_1.jpg?max_age=2963246343",
           sourse: "https://m701.music.126.net/20241015220736/4fd9b3883243cc291714a20869d961e2/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32283600345/f29b/d599/f294/a7361dca69f85d80e3c027f2ec0550cd.mp3?from=longzhu_api",
           url: "https://i.y.qq.com/v8/playsong.html?songmid=004DXFlC0nsTCZ&type=0",
+          favorited: false,
+        },
+        {
+          name: "身骑白马",
+          artist: "黏苞米糊糊DJ",
+          cover: "https://p2.music.126.net/i1k163NFsErhRTC_XsOWoQ==/109951169355203843.jpg",
+          sourse: "https://m701.music.126.net/20241015221722/5eda23e68d2348b21d561d34cf809a1d/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/33829736277/6b1e/f039/b751/0ddf548f00821c697b180816cf4d8e3c.mp3?from=longzhu_api",
+          url: "https://music.163.com/#/song?id=2015499286",
           favorited: false,
         },
       ];
