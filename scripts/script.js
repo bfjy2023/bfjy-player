@@ -214,7 +214,13 @@ new Vue({
     } else {
       // 默认播放列表
       this.tracks = [
-        
+        {
+          name: "年少有为",
+          artist: "李荣浩",
+          cover: "https://y.qq.com/music/photo_new/T002R800x800M000004QnEHc3zjC7J_1.jpg?max_age=2963246343",
+          sourse: "https://m701.music.126.net/20241015220736/4fd9b3883243cc291714a20869d961e2/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32283600345/f29b/d599/f294/a7361dca69f85d80e3c027f2ec0550cd.mp3?from=longzhu_api",
+          url: "https://i.y.qq.com/v8/playsong.html?songmid=004DXFlC0nsTCZ&type=0",
+        },
       ];
     }
     if (songName && artist && cover && source) {
