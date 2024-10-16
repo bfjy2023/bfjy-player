@@ -204,10 +204,26 @@ new Vue({
     // 进入项目首先检测地址栏的参数，是否包含歌曲信息，如果存在，则插入到当前播放列表中，并播放
     // 检测 URL 参数
     const params = new URLSearchParams(window.location.hash.substring(1));
-    const songName = params.get("name");
-    const artist = params.get("artist");
-    const cover = params.get("cover");
-    const source = params.get("source");
+    const song=params.get("song");
+    fetch(`https://dg.slwu19.workers.dev/?song=${song}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json(); // 解析响应体为 JSON
+      })
+      .then(data => {
+        // 假设 data 是一个对象，包含 song_name, song_singer, cover, music_url, link 等字段
+        const songName = data.song_name;
+        const artist = data.song_singer;
+        const cover = data.cover;
+        const source = data.music_url;
+        const url = data.link;
+        console.log(songName, artist, cover, source, url); // 打印结果
+      })
+      .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+      });
     // 取出本地缓存中的数据，赋值给播放列表
     const localTracks = localStorage.getItem("tracks");
     if (localTracks) {
