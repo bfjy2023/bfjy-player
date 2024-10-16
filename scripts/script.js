@@ -221,6 +221,22 @@ new Vue({
           sourse: "https://m701.music.126.net/20241015220736/4fd9b3883243cc291714a20869d961e2/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/32283600345/f29b/d599/f294/a7361dca69f85d80e3c027f2ec0550cd.mp3?from=longzhu_api",
           url: "https://i.y.qq.com/v8/playsong.html?songmid=004DXFlC0nsTCZ&type=0",
         },
+        {
+          name: "自在的少年",
+          artist: "要不要买菜",
+          cover: "https://y.qq.com/music/photo_new/T062R800x800M000000g0vZX2zsQfU.jpg?max_age=2963246343",
+          source: "https://sjy6.stream.qqmusic.qq.com/M800000KFNNA0BDekK.mp3?guid=www.hhlqilongzhu.cn&vkey=0B1A673D4803B51E74A20E2920FAEC2CC9D2AC361824D5186876764F067FC52C01CBBC3D198896393BF5EC67C7ECE15D55C45F3755D5CD23&uin=120032070&fromtag=5201314&info=cache&from=longzhu_api",
+          url: "https://i.y.qq.com/v8/playsong.html?songmid=003Kwlu20jioV9&type=0",
+          favorited: false,
+        },
+        {
+          name: "身骑白马",
+          artist: "黏苞米糊糊DJ",
+          cover: "https://y.qq.com/music/photo_new/T002R800x800M000003VfY9Q15mepb_1.jpg?max_age=2963246343",
+          sourse: "https://sjy6.stream.qqmusic.qq.com/M800000Zl8ez0wdt96.mp3?guid=www.hhlqilongzhu.cn&vkey=DAB3641FAC4BE3641ECAD1F9AE17DE7B3EDDA59B3F5A449B91A0ECDBE56445E95CE2426D29D1A33B64C23F488CAAB2C7AD73AD4DC65228CA&uin=1984867194&fromtag=5201314&info=cache&from=longzhu_api",
+          url: "https://i.y.qq.com/v8/playsong.html?songmid=000Zl8ez0wdt96&type=0",
+          favorited: false,
+        },
       ];
     }
     if (songName && artist && cover && source) {
