@@ -23,6 +23,7 @@ new Vue({
           cover: "https://y.qq.com/music/photo_new/T002R800x800M000004QnEHc3zjC7J_1.jpg?max_age=2963246343",
           sourse: "https://sjy6.stream.qqmusic.qq.com/M800000KFNNA0BDekK.mp3?guid=www.hhlqilongzhu.cn&vkey=0B1A673D4803B51E74A20E2920FAEC2CC9D2AC361824D5186876764F067FC52C01CBBC3D198896393BF5EC67C7ECE15D55C45F3755D5CD23&uin=120032070&fromtag=5201314&info=cache&from=longzhu_api",
           url: "https://i.y.qq.com/v8/playsong.html?songmid=004DXFlC0nsTCZ&type=0",
+          favorited: false,
         },
         {
           name: "身骑白马",
@@ -220,6 +221,7 @@ new Vue({
           cover: "https://y.qq.com/music/photo_new/T002R800x800M000004QnEHc3zjC7J_1.jpg?max_age=2963246343",
           sourse: "https://sjy6.stream.qqmusic.qq.com/M800000KFNNA0BDekK.mp3?guid=www.hhlqilongzhu.cn&vkey=0B1A673D4803B51E74A20E2920FAEC2CC9D2AC361824D5186876764F067FC52C01CBBC3D198896393BF5EC67C7ECE15D55C45F3755D5CD23&uin=120032070&fromtag=5201314&info=cache&from=longzhu_api",
           url: "https://i.y.qq.com/v8/playsong.html?songmid=004DXFlC0nsTCZ&type=0",
+          favorited: false,
         },
         {
           name: "自在的少年",
