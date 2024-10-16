@@ -13,7 +13,7 @@ new Vue({
           name: "自在的少年",
           artist: "要不要买菜",
           cover: "https://y.qq.com/music/photo_new/T062R800x800M000000g0vZX2zsQfU.jpg?max_age=2963246343",
-          source: ""https://sjy6.stream.qqmusic.qq.com/M5000021K9jl1QJA9C.mp3?guid=www.hhlqilongzhu.cn&vkey=E5D5AD59CE948F43C6AD84AEFB689CE466F05757E2A0AB2BDB4F64D8E494E4C62F5F4114796669F08553E116D805B621761B61CCE1FA7DB4&uin=3465221490&fromtag=5201314&from=longzhu_api"",
+          source: "https://sjy6.stream.qqmusic.qq.com/M5000021K9jl1QJA9C.mp3?guid=www.hhlqilongzhu.cn&vkey=E5D5AD59CE948F43C6AD84AEFB689CE466F05757E2A0AB2BDB4F64D8E494E4C62F5F4114796669F08553E116D805B621761B61CCE1FA7DB4&uin=3465221490&fromtag=5201314&from=longzhu_api"，
           url: "https://i.y.qq.com/v8/playsong.html?songmid=003Kwlu20jioV9&type=0",
           favorited: false,
         },
