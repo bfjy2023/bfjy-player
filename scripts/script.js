@@ -203,7 +203,7 @@ new Vue({
   created() {
     // 进入项目首先检测地址栏的参数，是否包含歌曲信息，如果存在，则插入到当前播放列表中，并播放
     // 检测 URL 参数
-    const params = new URLSearchParams(window.location.hash.substring(1));
+    const params = new URLSearchParams(window.location.search.substring(1));
     const song=params.get("song");
     fetch(`https://dg.slwu19.workers.dev/?song=${song}`)
       .then(response => {
