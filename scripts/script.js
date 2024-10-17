@@ -252,7 +252,6 @@ new Vue({
         const cover = data.cover;
         const source = data.music_url;
         const url = data.link;
-        console.log(songName, artist, cover, source, url); // 打印结果
         if (songName && artist && cover && source) {
           this.tracks = this.tracks.filter((track) => track.source !== source);
           // 放第一个
@@ -267,6 +266,7 @@ new Vue({
       .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
       });
+        console.log(songName, artist, cover, source, url); // 打印结果
       // 过滤重复的歌曲 根据资源路径判别
       // 将播放列表数据存储到本地缓存
       localStorage.setItem("tracks", JSON.stringify(this.tracks));
