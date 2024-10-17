@@ -205,7 +205,7 @@ new Vue({
     // 检测 URL 参数
     const params = new URLSearchParams(window.location.search.substring(1));
     const song=params.get("song");
-    fetch(`https://dg.slwu19.workers.dev/?song=${song}`)
+    fetch(`https://www.hhlgilongzhu.cn/api/dg_shenmimusic_sQ.php?msg=${song}dj&n=1&type=json&br=hq`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
