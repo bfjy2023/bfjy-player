@@ -204,7 +204,11 @@ new Vue({
     // 进入项目首先检测地址栏的参数，是否包含歌曲信息，如果存在，则插入到当前播放列表中，并播放
     // 检测 URL 参数
     const params = new URLSearchParams(window.location.search.substring(1));
-    const song=params.get("song");
+    const songName = params.get("name");
+    const artist = params.get("artist");
+    const cover = params.get("cover");
+    const source = params.get("source");
+    
     // 取出本地缓存中的数据，赋值给播放列表
     const localTracks = localStorage.getItem("tracks");
     if (localTracks) {
@@ -238,38 +242,6 @@ new Vue({
         },
       ];
     }
-    fetch(`https://dg.slwu19.workers.dev/?song=${song}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json(); // 解析响应体为 JSON
-      })
-      .then(data => {
-        // 假设 data 是一个对象，包含 song_name, song_singer, cover, music_url, link 等字段
-        const songName = data.song_name;
-        const artist = data.song_singer;
-        const cover = data.cover;
-        const source = data.music_url;
-        const url = data.link;
-        if (songName && artist && cover && source) {
-          this.tracks = this.tracks.filter((track) => track.source !== source);
-          // 放第一个
-          this.tracks.unshift({
-            name: songName,
-            artist: artist,
-            cover: cover,
-            source: source,
-            favorited: false,
-          });
-      })
-      .catch(error => {
-        console.error('There has been a problem with your fetch operation:', error);
-      });
-        console.log(songName, artist, cover, source, url); // 打印结果
-      // 过滤重复的歌曲 根据资源路径判别
-      // 将播放列表数据存储到本地缓存
-      localStorage.setItem("tracks", JSON.stringify(this.tracks));
     }
 
     let vm = this;
