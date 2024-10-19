@@ -21,7 +21,7 @@ new Vue({
           name: "年少有为",
           artist: "李荣浩",
           cover: "https://y.qq.com/music/photo_new/T002R800x800M000004QnEHc3zjC7J_1.jpg?max_age=2963246343",
-          source: "https://sjy6.stream.qqmusic.qq.com/M800000KFNNA0BDekK.mp3?guid=www.hhlqilongzhu.cn&vkey=0B1A673D4803B51E74A20E2920FAEC2CC9D2AC361824D5186876764F067FC52C01CBBC3D198896393BF5EC67C7ECE15D55C45F3755D5CD23&uin=120032070&fromtag=5201314&info=cache&from=longzhu_api",
+          sourse: "https://sjy6.stream.qqmusic.qq.com/M800000KFNNA0BDekK.mp3?guid=www.hhlqilongzhu.cn&vkey=0B1A673D4803B51E74A20E2920FAEC2CC9D2AC361824D5186876764F067FC52C01CBBC3D198896393BF5EC67C7ECE15D55C45F3755D5CD23&uin=120032070&fromtag=5201314&info=cache&from=longzhu_api",
           url: "https://i.y.qq.com/v8/playsong.html?songmid=004DXFlC0nsTCZ&type=0",
           favorited: false,
         },
@@ -203,12 +203,11 @@ new Vue({
   created() {
     // 进入项目首先检测地址栏的参数，是否包含歌曲信息，如果存在，则插入到当前播放列表中，并播放
     // 检测 URL 参数
-    const params = new URLSearchParams(window.location.search.substring(1));
+    const params = new URLSearchParams(window.location.hash.substring(1));
     const songName = params.get("name");
     const artist = params.get("artist");
     const cover = params.get("cover");
     const source = params.get("source");
-    
     // 取出本地缓存中的数据，赋值给播放列表
     const localTracks = localStorage.getItem("tracks");
     if (localTracks) {
@@ -228,7 +227,7 @@ new Vue({
           name: "年少有为",
           artist: "李荣浩",
           cover: "https://y.qq.com/music/photo_new/T002R800x800M000004QnEHc3zjC7J_1.jpg?max_age=2963246343",
-          source: "https://sjy6.stream.qqmusic.qq.com/M800000KFNNA0BDekK.mp3?guid=www.hhlqilongzhu.cn&vkey=0B1A673D4803B51E74A20E2920FAEC2CC9D2AC361824D5186876764F067FC52C01CBBC3D198896393BF5EC67C7ECE15D55C45F3755D5CD23&uin=120032070&fromtag=5201314&info=cache&from=longzhu_api",
+          sourse: "https://sjy6.stream.qqmusic.qq.com/M800000KFNNA0BDekK.mp3?guid=www.hhlqilongzhu.cn&vkey=0B1A673D4803B51E74A20E2920FAEC2CC9D2AC361824D5186876764F067FC52C01CBBC3D198896393BF5EC67C7ECE15D55C45F3755D5CD23&uin=120032070&fromtag=5201314&info=cache&from=longzhu_api",
           url: "https://i.y.qq.com/v8/playsong.html?songmid=004DXFlC0nsTCZ&type=0",
           favorited: false,
         },
@@ -242,6 +241,19 @@ new Vue({
         },
       ];
     }
+    if (songName && artist && cover && source) {
+      this.tracks = this.tracks.filter((track) => track.source !== source);
+      // 放第一个
+      this.tracks.unshift({
+        name: songName,
+        artist: artist,
+        cover: cover,
+        source: source,
+        favorited: false,
+      });
+      // 过滤重复的歌曲 根据资源路径判别
+      // 将播放列表数据存储到本地缓存
+      localStorage.setItem("tracks", JSON.stringify(this.tracks));
     }
 
     let vm = this;
